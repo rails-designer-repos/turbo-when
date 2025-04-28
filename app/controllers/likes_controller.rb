@@ -2,15 +2,21 @@ class LikesController < ApplicationController
   before_action :set_post, only: %w[create destroy]
 
   def create
-    Current.user.likes.create(post: @post)
+    respond_to do |format|
+      Current.user.likes.create(post: @post)
 
-    redirect_to root_path
+      format.html { redirect_to root_path }
+      format.turbo_stream
+    end
   end
 
   def destroy
-    Current.user.likes.find_by(post: @post).destroy
+    respond_to do |format|
+      Current.user.likes.find_by(post: @post).destroy
 
-    redirect_to root_path
+      format.html { redirect_to root_path }
+      format.turbo_stream
+    end
   end
 
   private

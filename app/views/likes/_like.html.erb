@@ -1,4 +1,4 @@
-<div>
+<turbo-frame id="likes">
   <% if user.likes.exists?(post: post) %>
     <%= button_to post_like_path(post, user.likes.find_by(post: post)), method: :delete do %>
       Unlike
@@ -8,4 +8,4 @@
       Like
     <% end %>
   <% end %>
-</div>
+</turbo-frame>
