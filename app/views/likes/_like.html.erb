@@ -1,0 +1,11 @@
+<div>
+  <% if user.likes.exists?(post: post) %>
+    <%= button_to post_like_path(post, user.likes.find_by(post: post)), method: :delete do %>
+      Unlike
+    <% end %>
+  <% else %>
+    <%= button_to post_likes_path(post), method: :post do %>
+      Like
+    <% end %>
+  <% end %>
+</div>

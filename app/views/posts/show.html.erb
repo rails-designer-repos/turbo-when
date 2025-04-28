@@ -1,0 +1,14 @@
+<main>
+  <article style="margin-top: 200vh">
+    <h1>
+      <%= @post.title %>
+      (<%= pluralize(@post.likes.count, "like") %>)
+    </h1>
+
+    <p>
+      <%= @post.content %>
+    </p>
+
+    <%= render partial: "likes/like", locals: { user: Current.user, post: @post } %>
+  </article>
+</main>
