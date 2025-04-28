@@ -1,6 +1,9 @@
 <main style="height: 300px; overflow-y: scroll">
   <article style="margin-top: 50vh">
-    <%= render partial: "title", locals: { post: @post } %>
+    <h1>
+      <%= @post.title %>
+      (<%= pluralize(@post.likes.count, "like") %>)
+    </h1>
 
     <p>
       <%= @post.content %>
